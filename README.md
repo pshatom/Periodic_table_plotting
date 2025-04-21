@@ -35,15 +35,3 @@ Make sure the first column contains valid IUPAC element symbols.
 3. Select the group/period range and color map
 4. Choose image format & DPI
 5. Click "Generate Image" and download the result!
-
-
----
-
-### 🔧 To Use:
-1. Copy this text into a file called `README.md` in the **root of your GitHub repo**.
-2. Customize:
-   - Replace `https://your-username.streamlit.app` with your actual Streamlit Cloud URL.
-   - Replace author info if you'd like.
-
-Want me to help generate badges (license, Streamlit, Python version) or add example images? I can do that too!
-
