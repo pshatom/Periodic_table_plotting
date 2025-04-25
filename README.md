@@ -1,8 +1,8 @@
 # Periodic_table_plotting
 
-<h1 align="center">
-  <span style="color: crimson; font-family: monospace; font-weight: bold; background-color: #ffdddd; padding: 3px 5px; border: 2px solid crimson; border-radius: 5px;">Ele</span><span style="color: cornflowerblue; font-family: sans-serif; font-weight: bold;">Map</span>
-</h1>
+<p align="center">
+  <img src="Ele-Map-logo.png" alt="EleMap" width="300"/>
+</p>
 
 # 🧪 EleMap: Interactive Periodic Table Visualizer
 
