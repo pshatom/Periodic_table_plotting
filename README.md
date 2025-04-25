@@ -1,5 +1,9 @@
 # Periodic_table_plotting
 
+<h1 align="center">
+  <span style="color: crimson; font-family: monospace; font-weight: bold; background-color: #ffdddd; padding: 3px 5px; border: 2px solid crimson; border-radius: 5px;">Ele</span><span style="color: cornflowerblue; font-family: sans-serif; font-weight: bold;">Map</span>
+</h1>
+
 # 🧪 EleMap: Interactive Periodic Table Visualizer
 
 This Streamlit app allows you to **upload your own elemental data** (with element symbols and a property) and generates a **visual periodic table** with your selected parameters.
