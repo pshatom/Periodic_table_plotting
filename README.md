@@ -61,6 +61,12 @@ Be,1.57
 - Show abundance of elements in Earth's crust or atmosphere
 - Highlight custom experimental data for research presentations
 
+## Citation
+
+If you use EleMap in your research, please cite the following paper:
+
+Sharma, P., et al. (2025). *EleMap: A web app for custom visualization of periodic table properties*. Available at: [https://github.com/pshatom/Periodic_table_plotting/blob/main/paper/paper.md](https://github.com/pshatom/Periodic_table_plotting/blob/main/paper/paper.md)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
