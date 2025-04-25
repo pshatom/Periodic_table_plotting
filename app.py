@@ -7,9 +7,8 @@ from io import BytesIO
 # Set page config to wide mode to reduce margins
 st.set_page_config(layout="wide")
 
+st.markdown("<h1 style='text-align: center; font-size: 48px; text-shadow: 2px 2px 4px #aaaaaa;'><span style='color: crimson; font-family: Impact, fantasy;'>Ele</span><span style='color: cornflowerblue; font-family: Verdana, sans-serif;'>Map</span></h1>", unsafe_allow_html=True)
 
-# Display EleMap title with custom styling ("Ele" in crimson, "Map" in cornflowerblue)
-st.markdown("<h1 style='text-align: center; font-size: 48px; font-family: Arial, sans-serif; text-shadow: 2px 2px 4px #aaaaaa;'><span style='color: crimson;'>Ele</span><span style='color: cornflowerblue;'>Map</span></h1>", unsafe_allow_html=True)
 # App title
 st.title("🧪 Periodic Table Property Visualizer")
 st.markdown("Upload a CSV with **2 columns**: `Element` and a numeric `Property`. Select the desired periodic table range and settings to generate the heatmap.")
