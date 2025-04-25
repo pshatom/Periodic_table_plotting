@@ -7,8 +7,12 @@ from io import BytesIO
 # Set page config to wide mode to reduce margins
 st.set_page_config(layout="wide")
 
-# App title
-st.title("🧪 Periodic Table Property Visualizer")
+# App title with EleMap branding
+st.markdown("""
+# <span style='color:#4285F4;'>Ele</span><span style='color:#EA4335;'>Map</span> 🧪
+## Interactive Periodic Table Property Visualizer
+""", unsafe_allow_html=True)
+
 st.markdown("Upload a CSV with **2 columns**: `Element` and a numeric `Property`. Select the desired periodic table range and settings to generate the heatmap.")
 
 # Row 1: Upload & Colormap
@@ -33,7 +37,7 @@ col7, col8 = st.columns(2)
 export_format = col7.selectbox("Image format", ["png", "svg", "tiff"])
 dpi_value = col8.selectbox("Quality (DPI)", [300, 600, 900, 1200], index=0)
 
-# Use custom CSS to reduce margins further
+# Use custom CSS to reduce margins and add branding elements
 st.markdown("""
 <style>
     .block-container {
@@ -44,6 +48,29 @@ st.markdown("""
     .css-18e3th9 {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+    /* EleMap branding styles */
+    .stApp {
+        background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    }
+    h1 {
+        font-size: 3rem !important;
+        font-weight: 700 !important;
+        letter-spacing: -1px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+        margin-top: -0.5rem !important;
+        font-weight: 400 !important;
+        color: #555;
+    }
+    .stButton button {
+        background-color: #4285F4 !important;
+        color: white !important;
+        font-weight: 500 !important;
+    }
+    .stButton button:hover {
+        background-color: #3367d6 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -62,6 +89,11 @@ elements_matrix = [
 ]
 group_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']
 period_labels = ['1', '2', '3', '4', '5', '6', '7', 'La', 'Ac']
+
+# Add a small footer
+st.sidebar.markdown("---")
+st.sidebar.markdown("### About EleMap")
+st.sidebar.markdown("EleMap helps chemists and researchers visualize periodic trends and element properties.")
 
 # Process only if file is uploaded
 if uploaded_file:
@@ -116,6 +148,9 @@ if uploaded_file:
                 cbar.ax.tick_params(labelsize=20)  # Adjust tick font size
                 cbar.set_label(f"{prop_name}", fontsize=20)  # Adjust label font size
                 
+                # Add EleMap watermark to plot
+                plt.figtext(0.02, 0.02, "EleMap", fontsize=14, color='gray', alpha=0.5)
+                
                 for i, row in enumerate(cropped_matrix):
                     for j, element in enumerate(row):
                         if element:
@@ -143,8 +178,19 @@ if uploaded_file:
                 st.download_button(
                     label=f"📥 Download as {export_format.upper()} ({dpi_value} dpi)",
                     data=buffer,
-                    file_name=f"periodic_table.{export_format}",
+                    file_name=f"elemap_periodic_table.{export_format}",
                     mime=f"image/{'svg+xml' if export_format == 'svg' else export_format}"
                 )
     except Exception as e:
         st.error(f"Error: {str(e)}")
+else:
+    # Display a sample image or instructions when no file is uploaded
+    st.info("👆 Upload a CSV file to start visualizing element properties. Your file should have exactly two columns: Element symbols and their corresponding property values.")
+    
+    # Display example data format
+    st.markdown("### Example CSV format:")
+    example = pd.DataFrame({
+        "Element": ["H", "He", "Li", "Be", "B"],
+        "Electronegativity": [2.20, 0.00, 0.98, 1.57, 2.04]
+    })
+    st.dataframe(example)
