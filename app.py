@@ -43,7 +43,7 @@ st.markdown("""
     .block-container {
         padding-left: 1rem;
         padding-right: 1rem;
-        max-width: 75%;
+        max-width: 90%;
     }
     .css-18e3th9 {
         padding-left: 1rem;
@@ -71,6 +71,24 @@ st.markdown("""
     }
     .stButton button:hover {
         background-color: #3367d6 !important;
+    }
+    /* Fix for matplotlib figure */
+    .stPlotlyChart, .stImage, .main > div[data-testid="stImage"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+    /* Remove the white background from plots */
+    .main svg, .main img {
+        background: transparent !important;
+    }
+    /* Custom pyplot settings */
+    [data-testid="stDecoration"], [data-testid="stDecoration"] + div {
+        display: none;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -137,8 +155,14 @@ if uploaded_file:
                 fig_width = 1.5 * len(cropped_matrix[0])
                 fig_height = 1.2 * len(cropped_matrix)
                 
-                # Create figure with proper aspect ratio but larger relative to page
-                fig, ax = plt.subplots(figsize=(fig_width, fig_height))
+                # Create figure with transparent background and no extra padding
+                plt.rcParams['figure.facecolor'] = 'none'
+                plt.rcParams['axes.facecolor'] = 'none'
+                fig, ax = plt.subplots(figsize=(fig_width, fig_height), facecolor='none')
+                
+                # Remove all figure padding
+                fig.tight_layout(pad=0)
+                fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
                 
                 # Plot the heatmap
                 cmap = plt.get_cmap(colormap)
@@ -166,14 +190,14 @@ if uploaded_file:
                 ax.spines[:].set_visible(False)
                 ax.xaxis.set_ticks_position('none')
                 ax.yaxis.set_ticks_position('none')
-                plt.tight_layout()
                 
                 # Display the plot using the full width of the page
                 st.pyplot(fig, use_container_width=True)
                 
                 # Save + download
                 buffer = BytesIO()
-                fig.savefig(buffer, format=export_format, dpi=dpi_value, bbox_inches='tight')
+                # Save with transparent background
+                fig.savefig(buffer, format=export_format, dpi=dpi_value, bbox_inches='tight', facecolor='none', transparent=True)
                 buffer.seek(0)
                 st.download_button(
                     label=f"📥 Download as {export_format.upper()} ({dpi_value} dpi)",
