@@ -4,6 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from io import BytesIO
 
+# Display EleMap title with custom styling
+st.markdown("<h1 style='text-align: center; color: #1f77b4; font-size: 48px; font-family: Arial, sans-serif; text-shadow: 2px 2px 4px #aaaaaa;'>EleMap</h1>", unsafe_allow_html=True)
+
+# Set page config to wide mode to reduce margins
+
 # Set page config to wide mode to reduce margins
 st.set_page_config(layout="wide")
 
