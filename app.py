@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <h1 style='text-align: center; font-size: 48px; text-shadow: 2px 2px 4px #aaaaaa;'>
   <span style='color: crimson; font-family: "Courier New", monospace; font-weight: bold; background-color: #ffdddd; padding: 3px 5px; border: 2px solid crimson; border-radius: 5px;'>Ele</span>
-  <span style='color: #3366cc; font-family: "Copperplate", "Papyrus", fantasy; font-weight: bold; background: linear-gradient(to right, #66aaff, #003366); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none;'>Map</span>
+  <span style='color: cornflowerblue; font-family: "Trebuchet MS", sans-serif; font-weight: bold; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #5588cc;'>Map</span>
 </h1>
 """, unsafe_allow_html=True)
 
