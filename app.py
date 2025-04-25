@@ -7,7 +7,12 @@ from io import BytesIO
 # Set page config to wide mode to reduce margins
 st.set_page_config(layout="wide")
 
-st.markdown("<h1 style='text-align: center; font-size: 48px; text-shadow: 2px 2px 4px #aaaaaa;'><span style='color: crimson; font-family: \"Courier New\", monospace; font-weight: bold; background-color: #ffdddd; padding: 3px 5px; border: 2px solid crimson; border-radius: 5px;'>Ele</span><span style='color: cornflowerblue; font-family: Verdana, sans-serif;'>Map</span></h1>", unsafe_allow_html=True)
+st.markdown("""
+<h1 style='text-align: center; font-size: 48px; text-shadow: 2px 2px 4px #aaaaaa;'>
+  <span style='color: crimson; font-family: "Courier New", monospace; font-weight: bold; background-color: #ffdddd; padding: 3px 5px; border: 2px solid crimson; border-radius: 5px;'>Ele</span>
+  <span style='color: #3366cc; font-family: "Arial", sans-serif; font-weight: bold; background: linear-gradient(to right, #66aaff, #003366); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; font-style: italic;'>Map</span>
+</h1>
+""", unsafe_allow_html=True)
 
 # App title
 st.title("🧪 Periodic Table Property Visualizer")
