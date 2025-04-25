@@ -1,6 +1,6 @@
 # Periodic_table_plotting
 
-# 🧪 Interactive Periodic Table Visualizer
+# 🧪 EleMap: Interactive Periodic Table Visualizer
 
 This Streamlit app allows you to **upload your own elemental data** (with element symbols and a property) and generates a **visual periodic table** with your selected parameters.
 
